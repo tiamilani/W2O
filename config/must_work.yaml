@@ -1,0 +1,349 @@
+---
+
+distributions:
+  - name: gaussian1
+    type: gaussian
+    seed: 1
+    mean: 10
+    variance: 2
+  - name: gaussian2
+    type: gaussian
+    seed: 1
+    mean: 50
+    variance: 2
+  - name: gaussian3
+    type: gaussian
+    seed: 1
+    mean: 25
+    variance: 2
+  - name: gaussian4
+    type: gaussian
+    seed: 1
+    mean: 15
+    variance: 2
+  - name: gaussian5
+    type: gaussian
+    seed: 1
+    mean: 13
+    variance: 2
+  - name: gaussian6
+    type: gaussian
+    seed: 1
+    mean: 11
+    variance: 2
+datasets:
+  - name: anchor_2
+    columns:
+      - name: bandwidth
+        distribution: gaussian1
+      - name: RTT
+        distribution: gaussian1
+      - name: PacketLoss
+        distribution: gaussian1
+      - name: delay
+        distribution: gaussian1
+      - name: bandwidth2
+        distribution: gaussian1
+      - name: RTT2
+        distribution: gaussian1
+      - name: PacketLoss2
+        distribution: gaussian1
+      - name: delay2
+        distribution: gaussian1
+    n: 100000
+    file: results/must_work_2/anchor.csv
+    overwrite: True
+  - name: positive_2
+    columns:
+      - name: bandwidth
+        distribution: gaussian1
+      - name: RTT
+        distribution: gaussian1
+      - name: PacketLoss
+        distribution: gaussian1
+      - name: delay
+        distribution: gaussian1
+      - name: bandwidth2
+        distribution: gaussian1
+      - name: RTT2
+        distribution: gaussian1
+      - name: PacketLoss2
+        distribution: gaussian1
+      - name: delay2
+        distribution: gaussian1
+    n: 100000
+    file: results/must_work_2/positive.csv
+    overwrite: True
+  - name: negative_2
+    columns:
+      - name: bandwidth
+        distribution: gaussian2
+      - name: RTT
+        distribution: gaussian2
+      - name: PacketLoss
+        distribution: gaussian2
+      - name: delay
+        distribution: gaussian2
+      - name: bandwidth2
+        distribution: gaussian2
+      - name: RTT2
+        distribution: gaussian2
+      - name: PacketLoss2
+        distribution: gaussian2
+      - name: delay2
+        distribution: gaussian2
+    n: 100000
+    file: results/must_work_2/negative.csv
+    overwrite: True
+  - name: anchor_3
+    columns:
+      - name: bandwidth
+        distribution: gaussian1
+      - name: RTT
+        distribution: gaussian1
+      - name: PacketLoss
+        distribution: gaussian1
+      - name: delay
+        distribution: gaussian1
+      - name: bandwidth2
+        distribution: gaussian1
+      - name: RTT2
+        distribution: gaussian1
+      - name: PacketLoss2
+        distribution: gaussian1
+      - name: delay2
+        distribution: gaussian1
+    n: 100000
+    file: results/must_work_3/anchor.csv
+    overwrite: True
+  - name: positive_3
+    columns:
+      - name: bandwidth
+        distribution: gaussian1
+      - name: RTT
+        distribution: gaussian1
+      - name: PacketLoss
+        distribution: gaussian1
+      - name: delay
+        distribution: gaussian1
+      - name: bandwidth2
+        distribution: gaussian1
+      - name: RTT2
+        distribution: gaussian1
+      - name: PacketLoss2
+        distribution: gaussian1
+      - name: delay2
+        distribution: gaussian1
+    n: 100000
+    file: results/must_work_3/positive.csv
+    overwrite: True
+  - name: negative_3
+    columns:
+      - name: bandwidth
+        distribution: gaussian3
+      - name: RTT
+        distribution: gaussian3
+      - name: PacketLoss
+        distribution: gaussian3
+      - name: delay
+        distribution: gaussian3
+      - name: bandwidth2
+        distribution: gaussian3
+      - name: RTT2
+        distribution: gaussian3
+      - name: PacketLoss2
+        distribution: gaussian3
+      - name: delay2
+        distribution: gaussian3
+    n: 100000
+    file: results/must_work_3/negative.csv
+    overwrite: True
+  - name: anchor_4
+    columns:
+      - name: bandwidth
+        distribution: gaussian1
+      - name: RTT
+        distribution: gaussian1
+      - name: PacketLoss
+        distribution: gaussian1
+      - name: delay
+        distribution: gaussian1
+      - name: bandwidth2
+        distribution: gaussian1
+      - name: RTT2
+        distribution: gaussian1
+      - name: PacketLoss2
+        distribution: gaussian1
+      - name: delay2
+        distribution: gaussian1
+    n: 100000
+    file: results/must_work_4/anchor.csv
+    overwrite: True
+  - name: positive_4
+    columns:
+      - name: bandwidth
+        distribution: gaussian1
+      - name: RTT
+        distribution: gaussian1
+      - name: PacketLoss
+        distribution: gaussian1
+      - name: delay
+        distribution: gaussian1
+      - name: bandwidth2
+        distribution: gaussian1
+      - name: RTT2
+        distribution: gaussian1
+      - name: PacketLoss2
+        distribution: gaussian1
+      - name: delay2
+        distribution: gaussian1
+    n: 100000
+    file: results/must_work_4/positive.csv
+    overwrite: True
+  - name: negative_4
+    columns:
+      - name: bandwidth
+        distribution: gaussian4
+      - name: RTT
+        distribution: gaussian4
+      - name: PacketLoss
+        distribution: gaussian4
+      - name: delay
+        distribution: gaussian4
+      - name: bandwidth2
+        distribution: gaussian4
+      - name: RTT2
+        distribution: gaussian4
+      - name: PacketLoss2
+        distribution: gaussian4
+      - name: delay2
+        distribution: gaussian4
+    n: 100000
+    file: results/must_work_4/negative.csv
+    overwrite: True
+  - name: anchor_5
+    columns:
+      - name: bandwidth
+        distribution: gaussian1
+      - name: RTT
+        distribution: gaussian1
+      - name: PacketLoss
+        distribution: gaussian1
+      - name: delay
+        distribution: gaussian1
+      - name: bandwidth2
+        distribution: gaussian1
+      - name: RTT2
+        distribution: gaussian1
+      - name: PacketLoss2
+        distribution: gaussian1
+      - name: delay2
+        distribution: gaussian1
+    n: 100000
+    file: results/must_work_5/anchor.csv
+    overwrite: True
+  - name: positive_5
+    columns:
+      - name: bandwidth
+        distribution: gaussian1
+      - name: RTT
+        distribution: gaussian1
+      - name: PacketLoss
+        distribution: gaussian1
+      - name: delay
+        distribution: gaussian1
+      - name: bandwidth2
+        distribution: gaussian1
+      - name: RTT2
+        distribution: gaussian1
+      - name: PacketLoss2
+        distribution: gaussian1
+      - name: delay2
+        distribution: gaussian1
+    n: 100000
+    file: results/must_work_5/positive.csv
+    overwrite: True
+  - name: negative_5
+    columns:
+      - name: bandwidth
+        distribution: gaussian5
+      - name: RTT
+        distribution: gaussian5
+      - name: PacketLoss
+        distribution: gaussian5
+      - name: delay
+        distribution: gaussian5
+      - name: bandwidth2
+        distribution: gaussian5
+      - name: RTT2
+        distribution: gaussian5
+      - name: PacketLoss2
+        distribution: gaussian5
+      - name: delay2
+        distribution: gaussian5
+    n: 100000
+    file: results/must_work_5/negative.csv
+    overwrite: True
+  - name: anchor_6
+    columns:
+      - name: bandwidth
+        distribution: gaussian1
+      - name: RTT
+        distribution: gaussian1
+      - name: PacketLoss
+        distribution: gaussian1
+      - name: delay
+        distribution: gaussian1
+      - name: bandwidth2
+        distribution: gaussian1
+      - name: RTT2
+        distribution: gaussian1
+      - name: PacketLoss2
+        distribution: gaussian1
+      - name: delay2
+        distribution: gaussian1
+    n: 100000
+    file: results/must_work_6/anchor.csv
+    overwrite: True
+  - name: positive_6
+    columns:
+      - name: bandwidth
+        distribution: gaussian1
+      - name: RTT
+        distribution: gaussian1
+      - name: PacketLoss
+        distribution: gaussian1
+      - name: delay
+        distribution: gaussian1
+      - name: bandwidth2
+        distribution: gaussian1
+      - name: RTT2
+        distribution: gaussian1
+      - name: PacketLoss2
+        distribution: gaussian1
+      - name: delay2
+        distribution: gaussian1
+    n: 100000
+    file: results/must_work_6/positive.csv
+    overwrite: True
+  - name: negative_6
+    columns:
+      - name: bandwidth
+        distribution: gaussian6
+      - name: RTT
+        distribution: gaussian6
+      - name: PacketLoss
+        distribution: gaussian6
+      - name: delay
+        distribution: gaussian6
+      - name: bandwidth2
+        distribution: gaussian6
+      - name: RTT2
+        distribution: gaussian6
+      - name: PacketLoss2
+        distribution: gaussian6
+      - name: delay2
+        distribution: gaussian6
+    n: 100000
+    file: results/must_work_6/negative.csv
+    overwrite: True

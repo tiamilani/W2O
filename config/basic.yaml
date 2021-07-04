@@ -1,0 +1,109 @@
+---
+
+# Define the distribution that you are going to use, the name MUST
+# identify the distribution uniquely
+# The type of a distribution defines which random generator should be used
+#   [gaussian, exponential, uniform]
+# The seed defines the seed used to initialize the rng for each distribution
+# After that you should insert the expected values required by each distribution
+#   gaussian      ->  [mean, variance]
+#   exponential   ->  [lambda]
+#   uniform       ->  [start, end]
+distributions:
+  - name: gaussian1
+    type: gaussian
+    seed: 1
+    mean: 5
+    variance: 2
+  - name: gaussian2
+    type: gaussian
+    seed: 1
+    mean: 4
+    variance: 3
+  - name: gaussian3
+    type: gaussian
+    seed: 1
+    mean: 6
+    variance: 2
+  - name: gaussian4
+    type: gaussian
+    seed: 1
+    mean: 3
+    variance: 1
+  - name: gaussian5
+    type: gaussian
+    seed: 1
+    mean: 0
+    variance: 6
+  - name: exponential
+    type: exponential
+    seed: 7
+    lambda: 0.1
+  - name: uniform
+    type: uniform
+    seed: 1
+    start: 0
+    end: 10
+# Defines the dataset that should be generated, is possible to generate
+# multiple datasets at a time
+datasets:
+  # The name MUST identify a single dataset
+  - name: anchor
+    # Is possible to define m columns inside a dataset
+    columns:
+      # Each column must have a name and a distribution associated
+      # The distribution MUST refer to the NAME of a valid distribution
+      - name: bandwidth
+        distribution: gaussian1
+      - name: RTT
+        distribution: gaussian2
+      - name: PacketLoss
+        distribution: gaussian3
+      - name: delay
+        distribution: gaussian4
+    # Number of row present in the dataset
+    n: 100000
+    # Where to save the file, is possible to define special options
+    #   date -> the current date
+    file: results/{date}/anchor.csv
+    overwrite: True
+  # The name MUST identify a single dataset
+  - name: positive
+    # Is possible to define m columns inside a dataset
+    columns:
+      # Each column must have a name and a distribution associated
+      # The distribution MUST refer to the NAME of a valid distribution
+      - name: bandwidth
+        distribution: gaussian1
+      - name: RTT
+        distribution: gaussian2
+      - name: PacketLoss
+        distribution: gaussian3
+      - name: delay
+        distribution: gaussian4
+    # Number of row present in the dataset
+    n: 100000
+    # Where to save the file, is possible to define special options
+    #   date -> the current date
+    file: results/{date}/positive.csv
+    overwrite: True
+  # The name MUST identify a single dataset
+  - name: negative
+    # Is possible to define m columns inside a dataset
+    columns:
+      # Each column must have a name and a distribution associated
+      # The distribution MUST refer to the NAME of a valid distribution
+      - name: bandwidth
+        distribution: gaussian1
+      - name: RTT
+        distribution: gaussian2
+      - name: PacketLoss
+        distribution: gaussian3
+      - name: delay
+        distribution: exponential
+    # Number of row present in the dataset
+    n: 100000
+    # Where to save the file, is possible to define special options
+    #   date -> the current date
+    file: results/{date}/negative.csv
+    overwrite: True

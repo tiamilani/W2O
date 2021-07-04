@@ -1,0 +1,15 @@
+[run]
+branch=True
+command_line= -m pytest --cov=src/ --cov-report term-missing
+omit =
+        tests/*
+        env/*
+        ignored/*
+source=
+        src/
+
+[tool:pytest]
+addopts = --cov=src/ --cov-report term-missing --rng-salt "v0.1.0"
+
+[report]
+show_missing=True

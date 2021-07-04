@@ -1,0 +1,41 @@
+---
+
+distributions:
+  - name: gaussian1
+    type: gaussian
+    seed: 1
+    mean: 10
+    variance: 1
+  - name: gaussian2
+    type: gaussian
+    seed: 1
+    mean: 100
+    variance: 1
+datasets:
+  - name: anchor
+    columns:
+      - name: bandwidth
+        distribution: gaussian1
+      - name: delay
+        distribution: gaussian2
+    n: 100000
+    file: results/bwVSdly/anchor.csv
+    overwrite: True
+  - name: positive
+    columns:
+      - name: bandwidth
+        distribution: gaussian1
+      - name: delay
+        distribution: gaussian2
+    n: 100000
+    file: results/bwVSdly/positive.csv
+    overwrite: True
+  - name: negative
+    columns:
+      - name: bandwidth
+        distribution: gaussian1
+      - name: delay
+        distribution: gaussian2
+    n: 100000
+    file: results/bwVSdly/negative.csv
+    overwrite: True
