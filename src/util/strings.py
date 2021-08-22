@@ -24,24 +24,40 @@ Module used to control in one place all the strings of the program
 
 class s:
 
-    dist = "distributions"
-    dist_name = "name"
-    dist_type = "type"
-    dist_seed = "seed"
-    dist_mean = "mean"
-    dist_variance = "variance"
-    dist_lmbd = "lambda"
-    dist_start = "start"
-    dist_end = "end"
-    normal_dists = ["normal", "gaussian"]
-    expo_dists = ["exponential"]
-    uniform_dists = ["uniform"]
 
-    dataset = "datasets"
-    dat_name = "name"
-    dat_n = "n"
-    dat_file = "file"
-    clm = "columns"
-    clm_name = "name"
-    clm_dist = "distribution"
-    overwrite = "overwrite"
+    # Argparse
+    script_description = "Use this script in order to automatically generate " +\
+                         "the oral part of an exam, starting from the list of "+\
+                         "students registered to the written part, with the "  +\
+                         "grades and a time schedule"
+
+    # main
+    vl = "value"
+    typ = "type"
+    # Configuration
+    s_threshold = "sufficiency_threshold"
+    skyp_row = "skyp_row"
+    output_folder = "output_folder"
+    gc_factor = "grade_correction_factor"
+    student_time = "minutes_per_student"
+    conf_elements = [s_threshold, skyp_row, output_folder, gc_factor,
+                     student_time]
+    # Values
+    vl_typ = "value"
+    fl_typ = "file"
+    dr_typ = "folder"
+    op_typ = "operation"
+    types = [vl_typ, fl_typ, dr_typ, op_typ]
+
+    # Pandas
+    students_idx = "Matricola"
+    grades_drops = ['Cognome', 'Nome', 'Indirizzo email', 'Dipartimento',
+                    'Stato', 'Iniziato', 'Completato', 'Tempo impiegato']
+
+    # Constants
+    STUDENTS_COLUMNS = ['Data Iscrizione', 'Matricola', 'Cognome', 'Nome', 'Data Nascita', 'Unnamed: 6', 'Esito', 'Domande d\'esame', 'Data superamento', 'Nota per lo studente', 'Presa Visione', 'Misure Compensative', 'Email']
+    STUDENTS_COLUMNS_ROUND = ['Data Iscrizione', 'Matricola', 'Cognome', 'Nome', 'Data Nascita', 'Unnamed: 6', 'Esito_round', 'Domande d\'esame', 'Data superamento', 'Nota per lo studente', 'Presa Visione', 'Misure Compensative', 'Email']
+
+    # Optional columns
+    OPT_C = ['Misure Compensative']
+

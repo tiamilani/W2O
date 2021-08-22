@@ -22,6 +22,7 @@ Use this module to handle files
 """
 
 import os
+import errno
 import typing
 from datetime import date
 
@@ -33,7 +34,7 @@ class FileHandler:
 
 
     def __init__(self, filepath: str, override: bool = False,
-                 create_path: bool = True):
+                 already_exists: bool = False):
         """__init__.
 
         Parameters
@@ -43,28 +44,26 @@ class FileHandler:
         override : bool
             check if is possible to over write the file or the old copy must
             be protected
-        create_path : bool
-            create the path up to the file flag
         """
 
+        self.__filepath: str = filepath
         self.__filename: str = filepath.split("/")[-1]
         self.__path: str = os.path.join("/".join(filepath.split("/")[:-1]))
-        # Check the path for particular characters
-        self.__path: str = self.evaluate_path(self.__path)
-        # Check if the path exists
-        if not os.path.exists(self.__path):
-            if create_path:
-                os.makedirs(self.__path)
-            else:
-                raise FileNotFoundError
+        self.__file = None
 
-        self.__filepath: str = os.path.join(self.__path, self.__filename)
+        if already_exists:
+            if not os.path.isfile(self.__filepath):
+                raise FileNotFoundError(errno.ENOENT, os.strerror(errno.ENOENT),
+                                        self.__filepath)
 
         # Create the file
         if override:
             self.__file = open(self.__filepath, "w")
         else:
-            self.__file = open(self.__filepath, "x")
+            if already_exists:
+                self.__file = open(self.__filepath, "r")
+            else:
+                self.__file = open(self.__filepath, "x")
 
     def __del__(self) -> None:
         """__del__.
@@ -78,7 +77,8 @@ class FileHandler:
         None
 
         """
-        self.file.close()
+        if self.file is not None:
+            self.file.close()
 
     def __str__(self) -> None:
         """__str__.
@@ -109,6 +109,10 @@ class FileHandler:
         return self.__file
 
     @property
+    def fileName(self) -> str:
+        return self.__filename
+
+    @property
     def path(self) -> str:
         """path.
 
@@ -136,55 +140,3 @@ class FileHandler:
         """
         return self.__path
 
-    def write(self, line: str) -> None:
-        """write.
-        Write a single line to the file, important the carriage return character
-        must be handle before passing the string
-
-        Parameters
-        ----------
-        line : str
-            line to write
-
-        Returns
-        -------
-        None
-
-        """
-        self.file.write(line)
-
-    def evaluate_path(self, path: str) -> str:
-        """evaluate_path.
-        Evalaute a paht for special options, like date
-
-        Parameters
-        ----------
-        path : str
-            path
-
-        Returns
-        -------
-        str the path with the text instead of the special options
-
-        """
-        return path.format(date=date.today())
-
-    def get(self, appendix: str) -> str:
-        """get.
-        Permits to get a file path with the same file name as the handled one
-        plus an appendix, remember the type of the file, the part after the '.'
-        will be removed, also the '.' will be removed
-
-        Parameters
-        ----------
-        appendix : str
-            string to use instead of the default desinence of the file
-
-        Returns
-        -------
-        str the filepath modified
-
-        """
-        pth = self.__filepath.split(".")[0]
-        pth += appendix
-        return pth
