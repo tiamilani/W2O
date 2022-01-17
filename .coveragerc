@@ -1,12 +1,20 @@
 [run]
 branch=True
-command_line= -m pytest --cov=src/ --cov-report term-missing
+command_line= -m pytest --cov=W2O/src/ --cov-report term-missing
 omit =
+		Biblio/*
+		build/*
+		dist/*
+		W2O.egg-info/*
+		docs/*
+		.eggs/*
+		.git/*
+		.pytest_cache/*
         tests/*
         env/*
         ignored/*
 source=
-        src/
+        W2O/src/
 
 [tool:pytest]
 addopts = --cov=src/ --cov-report term-missing --rng-salt "v0.1.0"

@@ -131,4 +131,5 @@ dmypy.json
 # Data folder
 tmp/
 results/
-data/
+Data/
+ignore/
