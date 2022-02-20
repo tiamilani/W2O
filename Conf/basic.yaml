@@ -4,7 +4,7 @@ sufficiency_threshold:
   value: 6
   type: "value"
 skyp_row:
-  value: 21
+  value: 22
   type: "value"
 output_folder:
   value: "results"

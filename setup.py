@@ -26,7 +26,10 @@ setup(
         'PyYAML',
         'argparse',
         'numpy',
-        'pandas'
+        'pandas',
+        'xlrd',
+        'openpyxl',
+        'xlwt'
     ],
     setup_requires=['pytest-runner'],
     tests_requires=['pytest', 'pytest-cov'],
